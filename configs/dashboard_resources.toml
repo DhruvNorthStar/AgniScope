@@ -1,0 +1,6 @@
+# Dashboard-only override; other limits are inherited unchanged from the scientific contract.
+[dashboard]
+minimum_runtime_available_ram_bytes = 209715200
+maximum_server_peak_working_set_bytes = 1073741824
+low_memory_warning_bytes = 536870912
+critical_memory_warning_bytes = 268435456

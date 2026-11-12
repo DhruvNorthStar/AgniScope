@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="255" height="44" viewBox="0 0 255 44">
+  <g fill="none" stroke="#72B9AB" stroke-width="1.5">
+    <circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/>
+    <path d="M22 2v8m0 24v8M2 22h8m24 0h8"/>
+  </g>
+  <path d="M22 12c1 6-7 8-5 14 1 4 8 5 10 0 2-4-1-9-5-14Z" fill="#DFA579"/>
+  <text x="48" y="29" fill="#F8FAFC" font-family="Segoe UI,system-ui,sans-serif" font-size="26" font-weight="600" letter-spacing="-.6">AgniScope</text>
+</svg>

@@ -1,0 +1,28 @@
+# Authorization is limited to this interval by Prompt 7 and a hard code allowlist.
+[request]
+stage = "A"
+source = "VIIRS_SNPP_SP"
+start = "2023-04-01"
+end = "2023-04-05"
+bbox = [77.5, 28.6, 81.2, 31.6]
+allowed_collection_values = ["2", "2.0"]
+maximum_days = 5
+maximum_response_bytes = 10485760
+
+[retry]
+maximum_attempts = 3
+backoff_seconds = [5, 20]
+minimum_spacing_seconds = 2
+transaction_reserve_fraction = 0.20
+
+[paths]
+raw = "data/raw/firms/VIIRS_SNPP_SP_2023-04-01_5days_uttarakhand_bbox.csv"
+store = "outputs/tables/phase2b_stage_a"
+derived = "data/interim/phase2b_stage_a"
+preflight = "outputs/tables/phase2b_stage_a/preflight.json"
+
+[scope]
+stage_b_authorized = false
+stage_c_authorized = false
+annual_clustering_authorized = false
+recurrence_authorized = false

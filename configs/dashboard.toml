@@ -1,0 +1,16 @@
+[application]
+title = "AgniScope AI"
+years = [2019, 2020, 2021, 2022, 2023, 2024, 2025]
+catalog = "dashboard/catalog.json"
+point_display_limit = 4000
+cell_display_limit = 2000
+boundary_display_tolerance_m = 60
+analysis_crs = "EPSG:32644"
+web_crs = "EPSG:4326"
+default_year = 2024
+default_resolution_m = 1000
+default_k = 4
+default_support = "detection"
+
+[sources]
+# Deliberately empty until an owner prepares and verifies the complete local data bundle.

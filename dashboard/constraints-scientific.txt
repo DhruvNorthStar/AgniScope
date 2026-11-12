@@ -1,0 +1,12 @@
+# Preserve the existing scientific runtime; the original Conda lock is unchanged.
+numpy==2.5.4
+pandas==3.0.6
+pyarrow==25.0.0
+scipy==1.18.1
+scikit-learn==1.9.1
+geopandas==1.2.0
+shapely==2.2.0
+pyproj==3.8.0
+pyogrio==0.13.0
+rasterio==1.5.2
+requests==2.34.2

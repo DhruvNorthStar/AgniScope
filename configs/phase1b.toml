@@ -1,0 +1,39 @@
+# Separate configuration preserves Phase 1A's configuration hash and evidence.
+[experiment]
+analysis_crs = "EPSG:32644"
+preflight = "outputs/tables/phase1b/preflight.json"
+output_dir = "outputs/tables/phase1b"
+saved_dbscan_assignments = "outputs/tables/phase1a/point_assignments.csv"
+saved_dbscan_eps_km = 1.0
+saved_dbscan_min_samples = 3
+min_cluster_size = [3, 5, 10, 15]
+min_samples = [3, 5, 10]
+input_order = "ascending_original_logical_csv_record"
+
+[estimator]
+cluster_selection_method = "eom"
+cluster_selection_epsilon = 0.0
+metric = "euclidean"
+alpha = 1.0
+algorithm = "auto"
+leaf_size = 40
+allow_single_cluster = false
+copy = true
+n_jobs = 1
+# max_cluster_size, metric_params, store_centers remain None (recorded in JSON).
+# copy=True protects inputs; n_jobs=1 bounds resources. Other options are defaults.
+
+[subsampling]
+fraction = 0.8
+seeds = [1729, 1730, 1731]
+count_rule = "floor_fraction_times_346"
+replacement = false
+rng = "numpy.default_rng_PCG64"
+scope = "all_12_settings_same_source_ids_within_each_repetition"
+
+# Post-grid descriptive reference; neither a physical optimum nor a winner.
+[reference]
+min_cluster_size = 5
+min_samples = 5
+recommendation = "C_carry_both_without_declaring_a_winner"
+role = "default_sized_provisional_HDBSCAN_counterpart_for_descriptive_comparison"

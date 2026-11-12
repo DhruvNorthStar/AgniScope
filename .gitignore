@@ -1,0 +1,27 @@
+# Local environments and caches
+.conda/
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+/work/
+.coverage
+
+# Credentials
+.env
+.env.*
+!.env.example
+*.secret
+
+# Data and generated scientific results
+/data/
+/outputs/
+*.parquet
+*.gpkg
+*.tif
+*.tiff
+*.qgz
+*.qpt
+*.log
+.DS_Store

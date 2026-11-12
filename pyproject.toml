@@ -1,0 +1,10 @@
+[project]
+name = "agniscope"
+version = "0.0.1"
+description = "Phase 0 data readiness for historical VIIRS hotspot research"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

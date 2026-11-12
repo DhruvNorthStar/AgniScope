@@ -1,0 +1,39 @@
+# Prompt 8 authorizes only these 73 new canonical intervals, plus local pilot reuse.
+[study]
+stage = "B"
+source = "VIIRS_SNPP_SP"
+start = "2024-01-01"
+end = "2024-12-31"
+bbox = [77.5, 28.6, 81.2, 31.6]
+allowed_collection_values = ["2", "2.0"]
+maximum_days = 5
+maximum_response_bytes = 10485760
+maximum_new_intervals = 73
+maximum_logical_intervals = 74
+
+[batch]
+maximum_new_intervals = 10
+concurrency = 1
+minimum_disk_free_bytes = 16106127360
+minimum_available_ram_bytes = 536870912
+maximum_total_attempts = 219
+maximum_recent_failed_attempts = 3
+recent_attempt_window = 10
+
+[retry]
+maximum_attempts = 3
+backoff_seconds = [5, 20]
+minimum_spacing_seconds = 2
+transaction_reserve_fraction = 0.20
+
+[paths]
+output = "outputs/tables/phase2b_stage_b"
+derived = "data/interim/phase2b_stage_b"
+annual = "data/processed/firms_2024"
+preflight = "outputs/tables/phase2b_stage_b/preflight.json"
+
+[scope]
+stage_c_authorized = false
+other_years_authorized = false
+clustering_authorized = false
+recurrence_authorized = false

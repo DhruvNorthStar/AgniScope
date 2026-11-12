@@ -1,0 +1,14 @@
+# Explicit joint scope; no observation acquisition outside these two years.
+[authorization]
+source = "VIIRS_SNPP_SP"
+bbox = [77.5, 28.6, 81.2, 31.6]
+year_order = [2021, 2020]
+maximum_distinct_new_intervals = 147
+calendar_days = 731
+require_c4_gate_before_c5 = true
+
+[scope]
+other_years_authorized = false
+clustering_authorized = false
+recurrence_authorized = false
+stage_c6_authorized = false

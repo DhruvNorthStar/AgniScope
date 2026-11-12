@@ -1,0 +1,83 @@
+# Phase 2A is an offline plan. These flags never authorize acquisition.
+[study]
+start = "2019-01-01"
+end = "2025-12-31"
+source = "VIIRS_SNPP_SP"
+expected_collection_major = "2"
+bbox = [77.5, 28.6, 81.2, 31.6]
+observation_crs = "EPSG:4326"
+analysis_crs = "EPSG:32644"
+time_basis = "UTC"
+reporting_timezone = "Asia/Kolkata"
+footprint = "data/processed/analysis_footprint.gpkg"
+
+[execution]
+enabled = false
+stage_a_authorized = false
+stage_b_authorized = false
+stage_c_authorized = false
+historical_executor_implemented = false
+
+[requests]
+maximum_days = 5
+maximum_response_bytes = 10485760
+concurrency = 1
+minimum_spacing_seconds = 2
+maximum_attempts = 3
+backoff_seconds = [5, 20]
+transaction_reserve_fraction = 0.20
+status_check_every_requests = 10
+working_storage_reserve_bytes = 10737418240
+minimum_free_after_reserve_bytes = 5368709120
+
+[reuse]
+start = "2024-04-01"
+end = "2024-04-05"
+raw_csv = "data/raw/firms/VIIRS_SNPP_SP_2024-04-01_5days_uttarakhand_bbox.csv"
+raw_sha256 = "355aa87b77dd99dc122c168aaeef09535b0f86fecf8cbe11c903e838f77ebc48"
+qc_csv = "data/interim/firms_qc/20261022T153604347862Z/accepted_records.csv"
+raw_rows = 613
+accepted_rows = 346
+
+[seasons.core]
+start_month_day = "02-15"
+end_month_day = "06-15"
+start_year_offset = 0
+identifier = "CORE_{end_year}"
+
+[seasons.extended]
+start_month_day = "11-01"
+end_month_day = "06-30"
+start_year_offset = -1
+identifier = "EXT_{start_year}_{end_year}"
+
+[stages.a]
+start = "2023-04-01"
+end = "2023-04-05"
+new_requests = 1
+
+[stages.b]
+start = "2024-01-01"
+end = "2024-12-31"
+new_requests = 73
+
+[stages.c]
+years = [2019, 2020, 2021, 2022, 2023, 2025]
+new_requests_after_a_and_b = 438
+
+# Method specification only: no grid, recurrence or clustering is generated.
+[recurrence_design]
+implemented = false
+primary_cell_size_m = 1000
+sensitivity_cell_sizes_m = [500, 2000]
+origin_xy_m = [0, 0]
+extent_xy_m = [170000, 3176000, 506000, 3482000]
+edge_policy = "half_open_left_bottom_inclusive"
+primary_component_neighbours = 4
+sensitivity_component_neighbours = 8
+primary_minimum_active_core_seasons = 3
+sensitivity_minimum_active_core_seasons = [2, 4]
+
+[outputs]
+directory = "outputs/tables/phase2a"
+upstream_issues = "configs/historical_upstream_issues.csv"

@@ -1,0 +1,26 @@
+[study]
+master = "data/processed/firms_2019_2025/validated_observations_2019_2025.parquet"
+master_sha256 = "e1e1261bfd63b37664ccec1100bd70752231c8e9ebd615b5f3286858057f3966"
+primary_years = [2019, 2020, 2021, 2022, 2023, 2024, 2025]
+primary_start = "02-15"
+primary_end_inclusive = "06-15"
+date_basis = "UTC"
+analysis_crs = "EPSG:32644"
+grid_origin_m = [0, 0]
+grid_resolutions_m = [500, 1000, 2000]
+thresholds = [2, 3, 4, 5]
+illustrative_threshold = 4
+baseline_adjacency = 4
+sensitivity_adjacency = 8
+observation_downloads = false
+clustering_refits = false
+
+[resources]
+minimum_startup_available_ram_bytes = 939524096
+minimum_available_ram_bytes = 536870912
+minimum_disk_free_bytes = 16106127360
+maximum_worker_working_set_bytes = 536870912
+startup_samples = 7
+startup_interval_seconds = 5
+monitor_interval_seconds = 0.1
+concurrency = 1

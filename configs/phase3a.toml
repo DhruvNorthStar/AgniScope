@@ -1,0 +1,38 @@
+[experiment]
+master = "data/processed/firms_2019_2025/validated_observations_2019_2025.parquet"
+master_sha256 = "e1e1261bfd63b37664ccec1100bd70752231c8e9ebd615b5f3286858057f3966"
+output = "outputs/tables/phase3a"
+populations = "data/interim/phase3a/populations"
+analysis_crs = "EPSG:32644"
+primary_years = [2019, 2020, 2021, 2022, 2023, 2024, 2025]
+extended_ending_years = [2020, 2021, 2022, 2023, 2024, 2025]
+dbscan_eps_km = [0.5, 1.0, 2.0]
+dbscan_min_samples = [3, 5, 10]
+hdbscan_min_cluster_size = [3, 5, 10, 15]
+hdbscan_min_samples = [3, 5, 10]
+input_order = "raw_SHA256_then_numeric_original_record"
+broad_cluster_diameter_m = 10000.0
+temporal_cell_m = 1000.0
+temporal_origin = [0.0, 0.0]
+silhouette = "omitted_no_dense_pairwise_distance_or_score_ranking"
+
+[hdbscan]
+cluster_selection_method = "eom"
+cluster_selection_epsilon = 0.0
+metric = "euclidean"
+alpha = 1.0
+algorithm = "kd_tree"
+leaf_size = 40
+allow_single_cluster = false
+copy = true
+n_jobs = 1
+
+[resources]
+minimum_startup_available_ram_bytes = 939524096
+minimum_available_ram_bytes = 536870912
+minimum_disk_free_bytes = 16106127360
+maximum_worker_working_set_bytes = 536870912
+maximum_fit_seconds = 180
+monitor_interval_seconds = 0.1
+maximum_probe_observations = 5000
+concurrency = 1

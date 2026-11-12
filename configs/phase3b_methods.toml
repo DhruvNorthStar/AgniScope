@@ -1,0 +1,27 @@
+[design]
+resource_configuration = "configs/phase3b.toml"
+reference_index = "outputs/tables/phase3b/resume_20261023/reference_index.json"
+analysis_crs = "EPSG:32644"
+origin_m = [0, 0]
+extent_m = [170000, 3176000, 506000, 3482000]
+resolutions_m = [500, 1000, 2000]
+primary_resolution_m = 1000
+populations = ["all", "grid_day", "nominal", "tree"]
+methods = ["detection", "dbscan", "hdbscan"]
+primary_years = [2019, 2020, 2021, 2022, 2023, 2024, 2025]
+thresholds = [2, 3, 4, 5]
+illustrative_threshold = 4
+threshold_authority = "Prompt 16 supersedes the Phase 2A illustrative k=3; all requested thresholds are reported"
+cell_edges = "left_bottom_inclusive_right_top_exclusive"
+eligibility = "strictly_positive_2021_district_union_intersection_area"
+boundary_only_owner = "stop_if_a_retained_point_maps_to_an_ineligible_zero_area_cell; never_snap_or_delete"
+cell_id = "resolution_code*2^32+(grid_y+32768)*2^16+(grid_x+32768); codes 500:1,1000:2,2000:3"
+activity_storage = "sparse_positive_season_rows; verified_complete_grid_left_join_defines_zeros"
+comparison_support_m = 500
+component_population = "all"
+component_adjacency = [4, 8]
+component_interpretation = "grid_cell_connectivity_with_clipped_geometries; not_independent_fires_or_burned_area"
+geometry_batch_cells = 1024
+area_relative_tolerance = 0.00000000001
+area_absolute_tolerance_m2 = 0.001
+satellite_observation_opportunity = "independently_unverified"
